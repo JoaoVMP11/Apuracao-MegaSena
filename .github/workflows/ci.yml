@@ -22,7 +22,7 @@ jobs:
         run: python --version
 
       - name: Executar programa
-        run: python programa.py 100
+        run: python gerador.py 100
 
       - name: Verificar arquivo CSV gerado
         run: |
