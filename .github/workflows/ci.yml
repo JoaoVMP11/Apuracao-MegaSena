@@ -1,0 +1,30 @@
+name: CI Python
+
+on:
+  push:
+  pull_request:
+
+jobs:
+  test:
+
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Baixar código do repositório
+        uses: actions/checkout@v6
+
+      - name: Configurar Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Verificar versão do Python
+        run: python --version
+
+      - name: Executar programa
+        run: python programa.py 100
+
+      - name: Verificar arquivo CSV gerado
+        run: |
+          test -f megasena.csv
+          test -s megasena.csv
